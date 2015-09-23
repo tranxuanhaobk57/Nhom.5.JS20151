@@ -1,0 +1,105 @@
+package samsung.java.giuaky;
+import java.util.Scanner;
+
+public abstract class Fish {
+	Scanner sc = new Scanner(System.in);
+	private String tenLoai;
+	private int maxPH;
+	private int minPH;
+	private String nhietDo;
+	private String thongTinLoai;
+	private double nongDoMuoi;
+	
+	public Fish(){
+		this.tenLoai = new String();
+		this.maxPH = 0;
+		this.minPH = 0;
+		this.nhietDo = new String();
+		this.thongTinLoai = new String();
+		this.nongDoMuoi = 0;
+	}
+
+	public String getTenLoai() {
+		return tenLoai;
+	}
+
+	public void setTenLoai(String tenLoai) {
+		this.tenLoai = tenLoai;
+	}
+
+	public int getMaxPH() {
+		return maxPH;
+	}
+
+	public void setMaxPH(int maxPH) {
+		this.maxPH = maxPH;
+	}
+
+	public int getMinPH() {
+		return minPH;
+	}
+
+	public void setMinPH(int minPH) {
+		this.minPH = minPH;
+	}
+
+	public String getNhietDo() {
+		return nhietDo;
+	}
+
+	public void setNhietDo(String nhietDo) {
+		this.nhietDo = nhietDo;
+	}
+
+	public String getThongTinLoai() {
+		return thongTinLoai;
+	}
+
+	public void setThongTinLoai(String thongTinLoai) {
+		this.thongTinLoai = thongTinLoai;
+	}
+
+	public double getNongDoMuoi() {
+		return nongDoMuoi;
+	}
+
+	public void setNongDoMuoi(double nongDoMuoi) {
+		this.nongDoMuoi = nongDoMuoi;
+	}
+	
+	@Override
+	public String toString() {
+		return "Fish [getTenLoai()=" + getTenLoai() + ", getMaxPH()=" + getMaxPH() + ", getMinPH()=" + getMinPH()
+				+ ", getNhietDo()=" + getNhietDo() + ", getThongTinLoai()=" + getThongTinLoai() + ", getNongDoMuoi()="
+				+ getNongDoMuoi() + "]";
+	}
+
+	public void addInfoFish(){
+		System.out.println("Nhap thong tin ca: ");
+		System.out.println("Nhap ten loai ca: ");
+		tenLoai = sc.nextLine();
+		System.out.println("Nhap do PH toi thieu: ");
+		minPH = sc.nextInt();
+		System.out.println("Nhap do PH toi da: ");
+		maxPH = sc.nextInt();
+		System.out.println("Nhap nong do muoi: ");
+		nongDoMuoi = sc.nextDouble();sc.nextLine();
+		System.out.println("Nhap nhiet do: ");
+		nhietDo = sc.nextLine();
+		System.out.println("Nhap thong tin loai: ");
+		thongTinLoai = sc.nextLine();
+	}
+	public void checkEnviroment(int initDoPH, String nhietDo, double nongDoMuoi){
+		if(((getMinPH()<initDoPH)||(getMaxPH()>initDoPH)) && (getNhietDo().equals(nhietDo))&&((getNongDoMuoi()<=nongDoMuoi)))
+				System.out.println("Song cmnr");
+		else
+				System.out.println("chet cmnr");
+	}
+	public abstract void displayInfo();
+//	public static void main(String[] args){
+//		Fish fish = new Fish();
+//		fish.addInfoFish();
+//		fish.checkEnviroment(6, "han doi", 0.05);
+//		System.out.println("thong tin vua nhap: " +fish.toString());
+//	}
+}
