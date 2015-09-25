@@ -1,0 +1,92 @@
+
+<!DOCTYPE html >
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="css/style.css" rel="stylesheet" type="text/css"/>
+<title>Insert title here</title>
+</head>
+<body>
+
+<div class="khungchinh">
+<div class="timkiem">
+<input type="text" value="" name="s" id="s" class="search-input" placeholder="Tìm ki?m" />
+    <input type="submit" id="searchsubmit" value="Search" title="Search" />
+</div>
+<div class="header-top">
+<ul class="header-top1">
+<li class="dropdown"><a href="#">VÊ` EVERGREEN</a>
+<ul>
+<li><a href="#">Gio´i thiê?u EVERGREEN</a></li>
+<li><a href="#">Tâ`m nhi`n</a></li>
+<li><a href="#">Su´ mê?nh</a></li>
+<li><a href="#">Gia´ tri? cô´t lo~i</a></li>
+<li><a href="#">Van ho´a </a></li>
+</ul>
+</li>
+<li class="dropdown"><a href="#">KHO´A HO?C</a>
+<ul>
+<li><a href="#">Tiê´n anh ta´i sinh</a></li>
+<li><a href="#">Tiê´ng anh dâ?y thi`</a></li>
+<li><a href="#">Li?ch khai gia?ng</a></li>
+<li><a href="#">Chi´nh sa´ch ho?c phi´</a></li>
+</ul>
+</li>
+<li class="dropdown"><a href="#">HOA?T ÐÔ?NG TRA?I NGHIÊ?M </a>
+<ul>
+<li><a href="#">Thu? tha´ch truy ti`m kho ba´u</a></li>
+<li><a href="#">Pho?ng vâ´n nguo`i nuo´c ngoa`i</a></li>
+<li><a href="#">La`m bô`i ba`n cho kha´ch nuo´c ngoa`i </a></li>
+<li><a href="#">Va`o bê´p vo´i nguo`i nuo´c ngoa`i</a></li>
+<li><a href="#">Ba´n ha`ng cho nguo`i nuo´c ngoa`i</a></li>
+<li><a href="#">La`m diê~n viên vo´i nguo`i nuo´c ngoa`i</a></li><li><a href="#">Tâ`m nhi`n</a></li>
+<li><a href="#">La`m pho´ng su? ba`ng tiê´ng anh</a></li>
+<li><a href="#">La`m huo´ng dâ~n viên du li?ch</a></li>
+</ul>
+</li>
+<li class="dropdown"><a href="#">CHIA SE? KINH NGHIÊ?M </a>
+<ul>
+<li><a href="#">Ta`i liê?u</a></li>
+<li><a href="#">Câu la?c bô?</a></li>
+<li><a href="#">Con nguo`i EVERGREEN</a></li>
+<li><a href="#">Go´c ho?c viên</a></li>
+</ul>
+</li>
+<li class="dropdown"><a href="#">SU? KIÊ?N-TUYÊ?N DU?NG </a>
+<ul>
+<li><a href="#">Chuong tri`nh su? kiê?n</a></li>
+<li><a href="#">Tuyê?n du?ng</a></li>
+</ul>
+</li>
+<li class="dropdown"><a href="#">LIÊN HÊ? </a></li>
+</ul>
+</div>
+<div id="middle">
+<div class="article">
+<a href="#"><img src="image/hinh2.jpg" alt=""/></a>
+</div>
+<div class="article2">
+<ul>
+<li>
+<a href="#"><img src="image/taisinh.jpg"  alt=""/></a>
+<h1>kho´a ho?c tiê´ng anh ta´i sinh</h1>
+<p align=center>Kho´a Ho?c Tiê´ng Anh Ta´i Sinh La`m SÔ´NG la?i tiê´ng Anh da~ CHÊ´T Nguo`i"mâ´t gô´c", muô´n ho?c la?i tu` dâ`u cha´c cha´n câ`n ho?c</p>
+</li>
+<li>
+<a href="#"><img src="image/daythi.jpg"  alt=""/></a>
+<h1 >kho´a ho?c tiê´ng anh dâ?y thi`</h1>
+<p >La`m "na?y no? " tiê´ng Anh giao tiê´p cu?a ba?n lên câ´p dô? Pre-intermediate. Da`nh cho nguo`i da~ giao tiê´p can ba?n duo?c, muô´n tu? tin giao tiê´p&la`m viê?c can ba?n vo´i nguo`i nuo´c ngoa`i.</p>
+</li>
+<li>
+<a href="#"><img src="image/truongthanh.png" alt=""/></a>
+<h1>kho´a ho?c tiê´ng anh truo?ng tha`nh</h1>
+<p align=center>La`m cu´ng ca´p tiê´ng anh giao tiê´p lên câ´p dô? Intermediate. Da`nh cho nguo`i muô´n nâng cao ky~ nang mê`m va` la`m viê?c vo´i nguo`i nuo´c ngoa`i</p>
+</li>
+</ul>
+</div>
+
+</div>
+</div>
+
+</body>
+</html>
