@@ -5,6 +5,14 @@
  */
 package GUI;
 
+import BangDiem.JfrmBangDiem;
+import BangDiem.JfrmTinhDiem;
+import GiaoVien.JfrmGiaoVien;
+import Khoa.JfrmKhoa;
+import LopHoc.JfrmLopHoc;
+import MonHoc.JfrmMonHoc;
+import Search.JfrmSearch;
+import Student.JfrmStudent;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
@@ -38,7 +46,7 @@ public class Main extends javax.swing.JFrame {
     }
 
     public void setUser() {
-        useName = JLogin.useNameLogin;
+        useName = JfrmLogin.useNameLogin;
         lbUser.setText(useName);
         lbHour.setText(date);
 
@@ -52,7 +60,7 @@ public class Main extends javax.swing.JFrame {
                 int gio = lich.get(Calendar.HOUR);
                 int phut = lich.get(Calendar.MINUTE);
                 int giay = lich.get(Calendar.SECOND);
-                txCurrent.setText(gio+" : "+phut+" : "+giay);
+                txCurrent.setText(gio + " : " + phut + " : " + giay);
             }
         });
         clock.start();
@@ -191,7 +199,7 @@ public class Main extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addContainerGap(47, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -201,8 +209,7 @@ public class Main extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbHour, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(46, Short.MAX_VALUE))
+                            .addComponent(lbHour, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel1, jLabel2});
@@ -217,7 +224,7 @@ public class Main extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 95, Short.MAX_VALUE)
         );
 
         jPanel4.setBackground(new java.awt.Color(255, 102, 204));
@@ -248,42 +255,77 @@ public class Main extends javax.swing.JFrame {
         btAddStudent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Item/ListMenuPatient1.png"))); // NOI18N
         btAddStudent.setText("Nhập Sinh Viên");
         btAddStudent.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btAddStudent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAddStudentActionPerformed(evt);
+            }
+        });
 
         btAddTeacher.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btAddTeacher.setForeground(new java.awt.Color(0, 0, 255));
         btAddTeacher.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Item/ListMenuPatient1.png"))); // NOI18N
         btAddTeacher.setText("Nhập Giáo Viên");
         btAddTeacher.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btAddTeacher.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAddTeacherActionPerformed(evt);
+            }
+        });
 
         btAddClass.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btAddClass.setForeground(new java.awt.Color(0, 0, 255));
         btAddClass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Item/ListMenuPatient1.png"))); // NOI18N
         btAddClass.setText("Nhập Lớp Học   ");
         btAddClass.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btAddClass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAddClassActionPerformed(evt);
+            }
+        });
 
         btAddSubject.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btAddSubject.setForeground(new java.awt.Color(0, 0, 255));
         btAddSubject.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Item/ListMenuPatient1.png"))); // NOI18N
         btAddSubject.setText("Nhập Môn Học");
         btAddSubject.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btAddSubject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAddSubjectActionPerformed(evt);
+            }
+        });
 
         btAddKhoa.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btAddKhoa.setForeground(new java.awt.Color(0, 0, 255));
         btAddKhoa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Item/ListMenuPatient1.png"))); // NOI18N
         btAddKhoa.setText("Nhập Khoa");
         btAddKhoa.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btAddKhoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAddKhoaActionPerformed(evt);
+            }
+        });
 
         btAddDiem.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btAddDiem.setForeground(new java.awt.Color(0, 0, 255));
         btAddDiem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Item/ListMenuPatient1.png"))); // NOI18N
         btAddDiem.setText("Nhập Điểm");
         btAddDiem.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btAddDiem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAddDiemActionPerformed(evt);
+            }
+        });
 
         btTinhDiem.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btTinhDiem.setForeground(new java.awt.Color(0, 0, 255));
         btTinhDiem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Item/ListMenuPatient1.png"))); // NOI18N
         btTinhDiem.setText("Tính Điểm");
         btTinhDiem.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btTinhDiem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btTinhDiemActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -426,7 +468,7 @@ public class Main extends javax.swing.JFrame {
                         .addGap(41, 41, 41)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE))
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
@@ -459,11 +501,21 @@ public class Main extends javax.swing.JFrame {
         jmiLogOff.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.ALT_MASK));
         jmiLogOff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Item/Logoff.png"))); // NOI18N
         jmiLogOff.setText("Log Off");
+        jmiLogOff.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiLogOffActionPerformed(evt);
+            }
+        });
         jmSystem.add(jmiLogOff);
 
         jmiExit.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
         jmiExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Item/logout.png"))); // NOI18N
         jmiExit.setText("Exit ");
+        jmiExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiExitActionPerformed(evt);
+            }
+        });
         jmSystem.add(jmiExit);
 
         jMenuBar1.add(jmSystem);
@@ -475,26 +527,51 @@ public class Main extends javax.swing.JFrame {
         jmiInputStudent.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_MASK));
         jmiInputStudent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Item/new.png"))); // NOI18N
         jmiInputStudent.setText("Input Student");
+        jmiInputStudent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiInputStudentActionPerformed(evt);
+            }
+        });
         jmInput.add(jmiInputStudent);
 
         jmiInputTeacher.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.ALT_MASK));
         jmiInputTeacher.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Item/new.png"))); // NOI18N
         jmiInputTeacher.setText("Input Teacher");
+        jmiInputTeacher.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiInputTeacherActionPerformed(evt);
+            }
+        });
         jmInput.add(jmiInputTeacher);
 
         jmiInputClass.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK));
         jmiInputClass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Item/new.png"))); // NOI18N
         jmiInputClass.setText("Input Class");
+        jmiInputClass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiInputClassActionPerformed(evt);
+            }
+        });
         jmInput.add(jmiInputClass);
 
         jmiInputSubject.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_MASK));
         jmiInputSubject.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Item/new.png"))); // NOI18N
         jmiInputSubject.setText("Input Subject");
+        jmiInputSubject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiInputSubjectActionPerformed(evt);
+            }
+        });
         jmInput.add(jmiInputSubject);
 
         jmiInputMark.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.ALT_MASK));
         jmiInputMark.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Item/new.png"))); // NOI18N
         jmiInputMark.setText("Input Mark");
+        jmiInputMark.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiInputMarkActionPerformed(evt);
+            }
+        });
         jmInput.add(jmiInputMark);
 
         jMenuBar1.add(jmInput);
@@ -502,6 +579,11 @@ public class Main extends javax.swing.JFrame {
         jmSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Item/search2.png"))); // NOI18N
         jmSearch.setText("Search");
         jmSearch.setPreferredSize(new java.awt.Dimension(111, 24));
+        jmSearch.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jmSearchMouseClicked(evt);
+            }
+        });
         jmSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmSearchActionPerformed(evt);
@@ -532,13 +614,13 @@ public class Main extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jtbMain)))
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jtbMain))
         );
 
         jtbMain.getAccessibleContext().setAccessibleName("Main");
@@ -546,9 +628,115 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btAddDiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddDiemActionPerformed
+        // TODO add your handling code here:
+        JfrmBangDiem BangDiem = new JfrmBangDiem();
+        jtbMain.removeAll();
+        jtbMain.add("The Mark", BangDiem);
+    }//GEN-LAST:event_btAddDiemActionPerformed
+
+    private void btAddTeacherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddTeacherActionPerformed
+        // TODO add your handling code here:
+        JfrmGiaoVien gv = new JfrmGiaoVien();
+        jtbMain.removeAll();
+        jtbMain.add("Teacher Information", gv);
+    }//GEN-LAST:event_btAddTeacherActionPerformed
+
+    private void btAddClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddClassActionPerformed
+        // TODO add your handling code here:
+        JfrmLopHoc Class = new JfrmLopHoc();
+        jtbMain.removeAll();
+        jtbMain.add("Class Information", Class);
+    }//GEN-LAST:event_btAddClassActionPerformed
+
     private void jmSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmSearchActionPerformed
         // TODO add your handling code here:
+        JfrmSearch timkiem = new JfrmSearch();
+        jtbMain.removeAll();
+        jtbMain.add("Search", timkiem);
     }//GEN-LAST:event_jmSearchActionPerformed
+
+    private void jmSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmSearchMouseClicked
+        // TODO add your handling code here:
+        JfrmSearch tkiem = new JfrmSearch();
+        jtbMain.removeAll();
+        jtbMain.add("Search", tkiem);
+    }//GEN-LAST:event_jmSearchMouseClicked
+
+    private void btAddStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddStudentActionPerformed
+        // TODO add your handling code here:
+        JfrmStudent student = new JfrmStudent();
+        jtbMain.removeAll();
+        jtbMain.add("Student Information", student);
+    }//GEN-LAST:event_btAddStudentActionPerformed
+
+    private void btAddSubjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddSubjectActionPerformed
+        // TODO add your handling code here:
+        JfrmMonHoc monHoc = new JfrmMonHoc();
+        jtbMain.removeAll();
+        jtbMain.add("Subject Information", monHoc);
+    }//GEN-LAST:event_btAddSubjectActionPerformed
+
+    private void btAddKhoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddKhoaActionPerformed
+        // TODO add your handling code here:
+        JfrmKhoa khoa = new JfrmKhoa();
+        jtbMain.removeAll();
+        jtbMain.add("Faculty Information", khoa);
+    }//GEN-LAST:event_btAddKhoaActionPerformed
+
+    private void btTinhDiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTinhDiemActionPerformed
+        // TODO add your handling code here:
+        JfrmTinhDiem Mark = new JfrmTinhDiem();
+        jtbMain.removeAll();
+        jtbMain.add("Mark", Mark);
+    }//GEN-LAST:event_btTinhDiemActionPerformed
+
+    private void jmiLogOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiLogOffActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        JfrmLogin login = new JfrmLogin();
+        login.setVisible(true);
+    }//GEN-LAST:event_jmiLogOffActionPerformed
+
+    private void jmiExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiExitActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jmiExitActionPerformed
+
+    private void jmiInputStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiInputStudentActionPerformed
+        // TODO add your handling code here:
+        JfrmStudent student = new JfrmStudent();
+        jtbMain.removeAll();
+        jtbMain.add("Student Information", student);
+    }//GEN-LAST:event_jmiInputStudentActionPerformed
+
+    private void jmiInputTeacherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiInputTeacherActionPerformed
+        // TODO add your handling code here:
+        JfrmGiaoVien gv = new JfrmGiaoVien();
+        jtbMain.removeAll();
+        jtbMain.add("Teacher Information", gv);
+    }//GEN-LAST:event_jmiInputTeacherActionPerformed
+
+    private void jmiInputClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiInputClassActionPerformed
+        // TODO add your handling code here:
+        JfrmLopHoc Class = new JfrmLopHoc();
+        jtbMain.removeAll();
+        jtbMain.add("Class Information", Class);
+    }//GEN-LAST:event_jmiInputClassActionPerformed
+
+    private void jmiInputSubjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiInputSubjectActionPerformed
+        // TODO add your handling code here:
+        JfrmMonHoc monHoc = new JfrmMonHoc();
+        jtbMain.removeAll();
+        jtbMain.add("Subject Information", monHoc);
+    }//GEN-LAST:event_jmiInputSubjectActionPerformed
+
+    private void jmiInputMarkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiInputMarkActionPerformed
+        // TODO add your handling code here:
+        JfrmBangDiem BangDiem = new JfrmBangDiem();
+        jtbMain.removeAll();
+        jtbMain.add("The Mark", BangDiem);
+    }//GEN-LAST:event_jmiInputMarkActionPerformed
 
     /**
      * @param args the command line arguments
