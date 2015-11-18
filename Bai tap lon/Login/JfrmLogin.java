@@ -3,11 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI;
+package Login;
 
+import ConnectDB.DBConnect;
+import GUI.Main;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.event.KeyEvent;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -20,27 +23,51 @@ public class JfrmLogin extends javax.swing.JFrame {
     /**
      * Creates new form JfrmLogin
      */
+    
+    PreparedStatement ps = null;
+    ResultSet rs = null;
     public static String useNameLogin;
+
     public JfrmLogin() {
         initComponents();
     }
-    public void reset(){
+
+    public void reset() {
         txName.setText("");
         pfPass.setText("");
         txName.requestFocus();
     }
-    public void nextProgram(){
+
+    public void nextProgram() {
         String str = "";
         String useName = txName.getText();
         String passWord = pfPass.getText();
-        if(useName.equals(str)||useName.equals(str)){
-            JOptionPane.showMessageDialog(null,"UseName and PassWord isn't Null","Error", JOptionPane.ERROR_MESSAGE);
+        if (useName.equals(str) || useName.equals(str)) {
+            JOptionPane.showMessageDialog(null, "UseName and PassWord isn't Null", "Error", JOptionPane.ERROR_MESSAGE);
             reset();
-        }  
-        else{
-            
+        } else if (DBConnect.open()) {
+           try{
+             boolean b = true;
+             ps = DBConnect.con.prepareStatement("select TenDangNhap,MatKhau from tblDangNhap");
+             rs = ps.executeQuery();
+             while(rs.next()){
+                 String usename = ""+ rs.getString("TenDangNhap");
+                 String password = ""+rs.getString("MatKhau");
+                 if(useName.equals(usename)&&passWord.equals(password)){
+                     useNameLogin = usename;
+                     new Main().setVisible(true);
+                     dispose();
+                 }else{
+                     JOptionPane.showMessageDialog(this,"Dang nhap khong chinh xac","Error Login", JOptionPane.ERROR_MESSAGE);
+                     reset();
+                 }
+             }
+           }catch(Exception e){
+               e.toString();
+           }
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -87,7 +114,7 @@ public class JfrmLogin extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 97, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -169,12 +196,11 @@ public class JfrmLogin extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
+                        .addGap(21, 21, 21)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbUse, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -197,7 +223,7 @@ public class JfrmLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLoginActionPerformed
