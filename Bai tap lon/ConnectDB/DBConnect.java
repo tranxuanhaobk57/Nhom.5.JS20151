@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ConnectDataBase;
+package ConnectDB;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -15,33 +15,33 @@ import java.util.logging.Logger;
  *
  * @author lanh
  */
-public class ConnectDB {
+public class DBConnect {
     public static String dirver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
     public static String url = "jdbc:sqlserver://Localhost:1433;databaseName=QuanLySV";
     public static String user = "sa";
     public static String pass = "123456";
-    public static Connection con;
+    public static Connection cnn;
     public static boolean open(){
         try {
-            if(con == null || con.isClosed()){
+            if(cnn == null || cnn.isClosed()){
                 Class.forName(dirver);
-                con = DriverManager.getConnection(url, user, pass);
+                cnn = DriverManager.getConnection(url, user, pass);
             }
             return true;
         } catch (SQLException ex) {
-            Logger.getLogger(ConnectDB.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DBConnect.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex){
-            Logger.getLogger(ConnectDB.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DBConnect.class.getName()).log(Level.SEVERE, null, ex);
         }
          return false;   
     }
     public static void close() {
         try {
-            if(con != null){
-                con.close();
+            if(cnn != null){
+                cnn.close();
             }
         } catch (SQLException e) {
-            Logger.getLogger(ConnectDB.class.getName()).log(Level.SEVERE, null , e);
+            Logger.getLogger(DBConnect.class.getName()).log(Level.SEVERE, null , e);
             
         }
     }
@@ -51,7 +51,7 @@ public class ConnectDB {
                 ps.close();
             }
         } catch (SQLException e) {
-            Logger.getLogger(ConnectDB.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(DBConnect.class.getName()).log(Level.SEVERE, null, e);
             
         }
         close();
@@ -62,7 +62,7 @@ public class ConnectDB {
                 rs.close();
             }
         } catch (SQLException e) {
-            Logger.getLogger(ConnectDB.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(DBConnect.class.getName()).log(Level.SEVERE, null, e);
         }
         close(ps);
     }
