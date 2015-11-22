@@ -227,26 +227,26 @@ public class JPMonHoc extends javax.swing.JPanel {
 
         btnNew.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnNew.setForeground(new java.awt.Color(255, 0, 0));
-        btnNew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/new.png"))); // NOI18N
+        btnNew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Item/new.png"))); // NOI18N
         btnNew.setText("NEW");
         btnNew.setMargin(new java.awt.Insets(2, -5, 2, 14));
 
         btnUpdate.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnUpdate.setForeground(new java.awt.Color(255, 0, 0));
-        btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/1446679350_ic_system_update_tv_48px.png"))); // NOI18N
+        btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Item/Update.png"))); // NOI18N
         btnUpdate.setText("UPDATE");
 
         btnDelete.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnDelete.setForeground(new java.awt.Color(255, 0, 0));
-        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/delete.png"))); // NOI18N
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Item/delete.png"))); // NOI18N
         btnDelete.setText("DELETE");
         btnDelete.setMargin(new java.awt.Insets(2, 7, 2, 14));
 
         btnReset.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnReset.setForeground(new java.awt.Color(255, 0, 0));
-        btnReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/1446679710_Reset.png"))); // NOI18N
+        btnReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Item/Refresh.ico-32x32.png"))); // NOI18N
         btnReset.setText("RESET");
-        btnReset.setMargin(new java.awt.Insets(2, 5, 2, 14));
+        btnReset.setMargin(new java.awt.Insets(2, -2, 2, 14));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);

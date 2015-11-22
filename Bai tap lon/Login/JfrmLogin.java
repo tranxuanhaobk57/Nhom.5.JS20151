@@ -14,15 +14,9 @@ import java.sql.ResultSet;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Tran Xuan Hao
- */
 public class JfrmLogin extends javax.swing.JFrame {
 
-    /**
-     * Creates new form JfrmLogin
-     */
+
     
     PreparedStatement ps = null;
     ResultSet rs = null;

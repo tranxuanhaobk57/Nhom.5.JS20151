@@ -15,6 +15,15 @@ public class BangDiem {
     private int lanThi;
     private int heSo;
     private float diem;
+
+    public boolean isTrangThai() {
+        return TrangThai;
+    }
+
+    public void setTrangThai(boolean TrangThai) {
+        this.TrangThai = TrangThai;
+    }
+    private boolean TrangThai;
     
     public BangDiem(){
     }
