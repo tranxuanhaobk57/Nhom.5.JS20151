@@ -31,7 +31,7 @@ public class LopHocSQL implements InLopHocSQL {
                     LopHoc lop = new LopHoc();
                     lop.setMalop(rs.getString(1));
                     lop.setTenlop(rs.getString(2));
-                    lop.setMalop(rs.getString(3));
+                    lop.setMakhoa(rs.getString(3));
                     lop.setKhoahoc(rs.getString(4));
                     list.add(lop);
                 }

@@ -16,9 +16,9 @@ public class LopHoc {
     private String makhoa;
     private String khoahoc;
 //
-//    public LopHoc(){
-//        
-//    }
+    public LopHoc(){
+        
+    }
     public LopHoc(String malop,String tenLop,String maKhoa,String khoaHoc){
         this.malop = malop;
         this.tenlop = tenLop;
