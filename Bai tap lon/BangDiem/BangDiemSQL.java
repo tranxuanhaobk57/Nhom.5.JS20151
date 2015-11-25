@@ -10,6 +10,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -18,7 +20,8 @@ import java.util.ArrayList;
 public class BangDiemSQL implements InBangDiemSQL {
 
     @Override
-    public ArrayList<BangDiem> getAll() {
+        public ArrayList<BangDiem> getAll() {
+        //throw new UnsupportedOperationException("Not supported yet.");
         ArrayList<BangDiem> list = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -38,13 +41,13 @@ public class BangDiemSQL implements InBangDiemSQL {
 
                     list.add(bd);
                 }
-            } catch (Exception e) {
-                e.toString();
+            } catch (SQLException ex) {
+                Logger.getLogger(BangDiemSQL.class.getName()).log(Level.SEVERE, null, ex);
             } finally {
                 DBConnect.close(ps, rs);
             }
         }
-        return null;
+        return list;
     }
 
     @Override
