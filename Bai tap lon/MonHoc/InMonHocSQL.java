@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package QuanLyMonHoc;
+package MonHoc;
 
 import java.util.ArrayList;
 
@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author Dang94
  */
-public interface MonHocDAO {
+public interface InMonHocSQL {
      public ArrayList<MonHoc> getAll();
      public ArrayList<MonHoc> findMaMH(String maMH);
      public MonHoc addNew(MonHoc mh);

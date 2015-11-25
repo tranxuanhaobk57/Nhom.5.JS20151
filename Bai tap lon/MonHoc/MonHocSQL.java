@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package QuanLyMonHoc;
+package MonHoc;
 
 import ConnectDB.DBConnect;
 import java.sql.PreparedStatement;
@@ -18,7 +18,7 @@ import java.util.logging.Logger;
  *
  * @author Dang94
  */
-public class MonHocIMPL implements MonHocDAO {
+public class MonHocSQL implements InMonHocSQL {
 
     @Override
     public ArrayList<MonHoc> getAll() {
@@ -27,7 +27,7 @@ public class MonHocIMPL implements MonHocDAO {
          ResultSet rs=null;
          if(DBConnect.open()){
              try{
-                 ps=DBConnect.con.prepareStatement("Select* from tblMonHoc");
+                 ps=DBConnect.cnn.prepareStatement("Select* from tblMonHoc");
                  rs=ps.executeQuery();
                  list=new ArrayList<>();
                  while(rs.next()){
@@ -42,7 +42,7 @@ public class MonHocIMPL implements MonHocDAO {
                  }
                  
              } catch (SQLException ex) {
-                 Logger.getLogger(MonHocIMPL.class.getName()).log(Level.SEVERE, null, ex);
+                 Logger.getLogger(MonHocSQL.class.getName()).log(Level.SEVERE, null, ex);
              }
              finally{
                  DBConnect.close(ps,rs);
@@ -59,7 +59,7 @@ public class MonHocIMPL implements MonHocDAO {
         ResultSet rs=null;
         if(DBConnect.open()){
             try{
-                ps=DBConnect.con.prepareStatement("select * tblMonHoc where MaMH=?");
+                ps=DBConnect.cnn.prepareStatement("select * tblMonHoc where MaMH=?");
                 ps.setString(1, maMH);
                 rs=ps.executeQuery();
                 list=new ArrayList<>();
@@ -74,7 +74,7 @@ public class MonHocIMPL implements MonHocDAO {
                      list.add(mh);
                 }
             } catch (SQLException ex) {
-                Logger.getLogger(MonHocIMPL.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(MonHocSQL.class.getName()).log(Level.SEVERE, null, ex);
             }
         finally{
                  DBConnect.close(ps,rs);
@@ -88,7 +88,7 @@ public class MonHocIMPL implements MonHocDAO {
         PreparedStatement ps=null;
         if(DBConnect.open()){
             try{
-                ps=DBConnect.con.prepareCall("insert into tblMonHoc(MaMH, TenMH, SoTinChi, HinhThucThi, HocKy, PhongHoc) value(?,?,?,?,?,?)");
+                ps=DBConnect.cnn.prepareCall("insert into tblMonHoc(MaMH, TenMH, SoTinChi, HinhThucThi, HocKy, PhongHoc) value(?,?,?,?,?,?)");
                 ps.setString(1, mh.getMaMH());
                 ps.setString(2, mh.getTenMH());
                 ps.setInt(3, mh.getSoTC());
@@ -100,7 +100,7 @@ public class MonHocIMPL implements MonHocDAO {
                     mh=null;
                 }
             } catch (SQLException ex) {
-                Logger.getLogger(MonHocIMPL.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(MonHocSQL.class.getName()).log(Level.SEVERE, null, ex);
             }
      finally{
                  DBConnect.close(ps);
@@ -114,7 +114,7 @@ public class MonHocIMPL implements MonHocDAO {
         PreparedStatement ps=null;
         if(DBConnect.open()){
             try{
-            ps=DBConnect.con.prepareStatement("update tblMonHoc set TenMH=?, SoTinChi=?, HinhThucThi=?, HocKy=?, PhongHoc=? where MaMH=?");
+            ps=DBConnect.cnn.prepareStatement("update tblMonHoc set TenMH=?, SoTinChi=?, HinhThucThi=?, HocKy=?, PhongHoc=? where MaMH=?");
             ps.setString(1, mh.getTenMH());
             ps.setInt(2, mh.getSoTC());
             ps.setString(3, mh.getHinhThucThi());
@@ -127,7 +127,7 @@ public class MonHocIMPL implements MonHocDAO {
             }
             
         }   catch (SQLException ex) {
-                Logger.getLogger(MonHocIMPL.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(MonHocSQL.class.getName()).log(Level.SEVERE, null, ex);
             }
        finally {
                 DBConnect.close();
@@ -139,7 +139,7 @@ public class MonHocIMPL implements MonHocDAO {
     public void delMH(String MaMH) throws SQLException, ClassNotFoundException{
         PreparedStatement ps=null;
         if(DBConnect.open()){
-            ps=DBConnect.con.prepareStatement("delete from tblMonHoc where MaMH=?");
+            ps=DBConnect.cnn.prepareStatement("delete from tblMonHoc where MaMH=?");
             ps.setString(1, MaMH);
             ps.executeUpdate();
             DBConnect.close();
@@ -153,7 +153,7 @@ public class MonHocIMPL implements MonHocDAO {
         ResultSet rs=null;
         if(DBConnect.open()){
             try{
-                ps=DBConnect.con.prepareStatement("select * from tblMonHoc where MaMH=?");
+                ps=DBConnect.cnn.prepareStatement("select * from tblMonHoc where MaMH=?");
                 ps.setString(1, maMH);
                 rs=ps.executeQuery();
                 list=new ArrayList<MonHoc>();
@@ -164,7 +164,7 @@ public class MonHocIMPL implements MonHocDAO {
                     
                 }
             } catch (SQLException ex) {
-                Logger.getLogger(MonHocIMPL.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(MonHocSQL.class.getName()).log(Level.SEVERE, null, ex);
             }
        finally{
             DBConnect.close(ps, rs);
